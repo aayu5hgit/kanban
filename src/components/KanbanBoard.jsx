@@ -1,31 +1,31 @@
 import React from 'react';
 import Ticket from './Ticket';
 
-function KanbanBoard({ tickets }) {
-  const todoTickets = tickets.filter(ticket => ticket.status === 'Todo');
-  const inProgressTickets = tickets.filter(ticket => ticket.status === 'In progress');
-  const doneTickets = tickets.filter(ticket => ticket.status === 'Done');
+function KanbanBoard({ tickets, groupingOption }) {
+  const groupedTickets = {};
+  tickets.forEach((ticket) => {
+    const groupKey = groupingOption === 'user' ? ticket.userId : ticket[groupingOption];
+    if (!groupedTickets[groupKey]) {
+      groupedTickets[groupKey] = [];
+    }
+    groupedTickets[groupKey].push(ticket);
+  });
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <div className="bg-white rounded-lg shadow-md p-4">
-        <h2 className="text-lg font-semibold mb-2">To Do</h2>
-        {todoTickets.map(ticket => (
-          <Ticket key={ticket.id} ticket={ticket} />
-        ))}
-      </div>
-      <div className="bg-white rounded-lg shadow-md p-4">
-        <h2 className="text-lg font-semibold mb-2">In Progress</h2>
-        {inProgressTickets.map(ticket => (
-          <Ticket key={ticket.id} ticket={ticket} />
-        ))}
-      </div>
-      <div className="bg-white rounded-lg shadow-md p-4">
-        <h2 className="text-lg font-semibold mb-2">Done</h2>
-        {doneTickets.map(ticket => (
-          <Ticket key={ticket.id} ticket={ticket} />
-        ))}
-      </div>
+      {Object.keys(groupedTickets).map((groupKey) => (
+        <div key={groupKey} className="bg-white rounded-lg shadow-md p-4">
+          <h2 className="text-lg font-semibold mb-2">
+            {groupingOption === 'user' ? `User: ${groupKey}` : groupKey}
+            <span className="text-sm text-gray-500 ml-2">
+              ({groupedTickets[groupKey].length})
+            </span>
+          </h2>
+          {groupedTickets[groupKey].map((ticket) => (
+            <Ticket key={ticket.id} ticket={ticket} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
