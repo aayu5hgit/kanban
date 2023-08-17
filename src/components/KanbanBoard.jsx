@@ -1,14 +1,15 @@
-import React from "react";
-import Ticket from "./Ticket";
-import {VscAdd, VscEllipsis, VscListOrdered} from "react-icons/vsc";
-import {BiCircle, BiCircleHalf, BiErrorCircle} from "react-icons/bi";
-import {BiSignal1, BiSignal2, BiSignal3, BiSignal4, BiSignal5} from "react-icons/bi";
+import React from 'react';
+import Ticket from './Ticket';
+import { VscAdd, VscEllipsis, VscListOrdered } from 'react-icons/vsc';
+import { BiCircle, BiErrorCircle, BiSignal1, BiSignal2, BiSignal3, BiSignal4, BiSignal5 } from 'react-icons/bi';
+import { BsClock } from 'react-icons/bs';
+import { PiCircleHalfFill } from 'react-icons/pi';
 
 function KanbanBoard({ tickets, groupingOption, users }) {
   const groupedTickets = {};
   tickets.forEach((ticket) => {
     const groupKey =
-      groupingOption === "user" ? ticket.userId : ticket[groupingOption];
+      groupingOption === 'user' ? ticket.userId : ticket[groupingOption];
     if (!groupedTickets[groupKey]) {
       groupedTickets[groupKey] = [];
     }
@@ -16,49 +17,49 @@ function KanbanBoard({ tickets, groupingOption, users }) {
   });
 
   const getGroupingIcon = (groupKey) => {
-    if (groupingOption === "status") {
+    if (groupingOption === 'status') {
       return (
         <div>
-          {groupedTickets[groupKey].some((ticket) => ticket.status === "Todo") ? (
-            <BiCircle className="inline-block w-5 h-5 mr-2 ml-1 text-gray-500"/>
-          ) : groupedTickets[groupKey].some((ticket) => ticket.status === "In progress") ? (
-            <BiCircleHalf className="inline-block w-5 h-5 mr-2 ml-1 text-orange-500"/>
-          ) : groupedTickets[groupKey].some((ticket) => ticket.status === "Backlog") ? (
-            <BiErrorCircle className="inline-block w-5 h-5 mr-2 ml-1 text-red-500"/>
+          {groupedTickets[groupKey].some((ticket) => ticket.status === 'Todo') ? (
+            <BsClock className="inline-block w-5 h-5 mr-2 ml-1 text-blue-500" />
+          ) : groupedTickets[groupKey].some((ticket) => ticket.status === 'In progress') ? (
+            <PiCircleHalfFill className="inline-block w-5 h-5 mr-2 ml-1 text-orange-500" />
+          ) : groupedTickets[groupKey].some((ticket) => ticket.status === 'Backlog') ? (
+            <BiErrorCircle className="inline-block w-5 h-5 mr-2 ml-1 text-red-500" />
           ) : null}
         </div>
       );
-    } else if (groupingOption === "priority") {
+    } else if (groupingOption === 'priority') {
       return (
         <>
-        <div>
-          {groupedTickets[groupKey].some((ticket) => ticket.priority === 0) ? (
-            <span className="text-sm text-gray-500 mx-2">
-              <BiSignal1 className="inline-block w-5 h-5 mr-2"/>
-              No Priority
-              </span>
-          ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 1) ? (
-            <span className="text-sm text-gray-500 mx-2">
-              <BiSignal2 className="inline-block w-5 h-5 mr-2"/>
-              Low 
-              </span>
-          ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 2) ? (
-            <span className="text-sm text-gray-500 mx-2">
-              <BiSignal3 className="inline-block w-5 h-5 mr-2"/>
-              Medium 
-              </span>
-          ) :  groupedTickets[groupKey].some((ticket) => ticket.priority === 3) ? (
-            <span className="text-sm text-gray-500 mx-2">
-              <BiSignal4 className="inline-block w-5 h-5 mr-2"/>
-              High 
-              </span>
-          ): groupedTickets[groupKey].some((ticket) => ticket.priority === 4) ? (
+          <div>
+            {groupedTickets[groupKey].some((ticket) => ticket.priority === 0) ? (
               <span className="text-sm text-gray-500 mx-2">
-                <BiSignal5 className="inline-block w-5 h-5 mr-2 "/>
+                <BiSignal1 className="inline-block w-5 h-5 mr-2" />
+                No Priority
+              </span>
+            ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 1) ? (
+              <span className="text-sm text-gray-500 mx-2">
+                <BiSignal2 className="inline-block w-5 h-5 mr-2" />
+                Low
+              </span>
+            ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 2) ? (
+              <span className="text-sm text-gray-500 mx-2">
+                <BiSignal3 className="inline-block w-5 h-5 mr-2" />
+                Medium
+              </span>
+            ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 3) ? (
+              <span className="text-sm text-gray-500 mx-2">
+                <BiSignal4 className="inline-block w-5 h-5 mr-2" />
+                High
+              </span>
+            ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 4) ? (
+              <span className="text-sm text-gray-500 mx-2">
+                <BiSignal5 className="inline-block w-5 h-5 mr-2 " />
                 Urgent
               </span>
-          ): null}
-        </div>
+            ) : null}
+          </div>
         </>
       );
     }
@@ -72,19 +73,22 @@ function KanbanBoard({ tickets, groupingOption, users }) {
           <h2 className="text-sm font-semibold mb-2 flex items-center justify-between">
             <div className="flex items-center">
               {getGroupingIcon(groupKey)}
-              {groupingOption === "user" ? (
-                <div className="text-sm mt-1">
-                  <img
-                    src={users.find((user) => user.id === groupKey)?.image}
-                    alt=""
-                    className="w-6 h-6 rounded-full mr-2 float-left"
-                  />
+              {groupingOption === 'user' ? (
+                <div className="text-sm mt-1 flex items-center">
+                  <div className={`w-6 h-6 rounded-full mr-2 float-left bg-blue-500 text-white flex items-center justify-center`}>
+                    {users.find((user) => user.id === groupKey)?.name[0]}
+                  </div>
                   {users.find((user) => user.id === groupKey)?.name}
+                  {users.find((user) => user.id === groupKey)?.available ? (
+                    <span className="inline-block w-2 h-2 bg-green-500 ml-1 rounded-full" />
+                  ) : (
+                    <span className="inline-block w-2 h-2 bg-red-500 ml-1 rounded-full" />
+                  )}
                 </div>
               ) : (
                 groupKey
               )}
-              <span className="text-sm text-gray-500 ml-2">
+              <span className="text-xs text-gray-400 ml-2">
                 ({groupedTickets[groupKey].length})
               </span>
             </div>

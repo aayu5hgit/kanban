@@ -28,13 +28,13 @@ function App() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="bg-white shadow-md p-4">
-        <div className="flex justify-start space-x-2 space-y-4">
+      <header className="bg-white p-2">
+        <div className="flex justify-start space-x-2 space-y-2">
           <div className="relative inline-block">
             <div className="group inline-block relative">
-              <button className="text-gray-700 border border-gray-500/50  font-semibold py-1 px-2 rounded inline-flex items-center">
+              <button className="text-gray-700 border border-gray-500/50 shadow-sm font-semibold py-1 px-2 rounded inline-flex items-center">
                 <VscSettings className="mr-1" />
-                <span className="mr-1 text-sm">Display</span>
+                <span className="text-sm">Display</span>
                 <VscChevronDown className="ml-1" />
               </button>
               <ul className="absolute hidden text-gray-700 group-hover:block">
@@ -46,7 +46,7 @@ function App() {
                         Grouping
                       </h3>
                       <select
-                        className="text-sm text-gray-500 border rounded-md px-2 bg-white"
+                        className="text-sm text-gray-500 border rounded-md px-2 bg-white w-fit"
                         value={groupingOption}
                         onChange={(e) => setGroupingOption(e.target.value)}
                       >
