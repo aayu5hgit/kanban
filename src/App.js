@@ -9,6 +9,12 @@ function App() {
   const [users, setUsers] = useState([]);
   const [groupBy, setgroupBy] = useState("status");
   const [sortBy, setSortBy] = useState("priority");
+const [isListOpen, setIsListOpen] = useState(false);
+
+const toggleList = () => {
+  setIsListOpen(!isListOpen);
+};
+
 
   useEffect(() => {
     fetchTickets();
@@ -29,27 +35,26 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <header className="bg-white p-2">
-        <div className="flex justify-start space-x-2 space-y-2">
-          <div className="relative inline-block">
-            <div className="group inline-block relative">
-              <button className="text-gray-700 border bg-white border-gray-500/50 shadow-sm font-semibold py-1 px-2 rounded inline-flex items-center ">
-                <VscSettings className="mr-1" />
-                <span className="text-sm">Display</span>
-                <VscChevronDown className="ml-1" />
-              </button>
-              <ul className="absolute text-gray-700 hover-block">
-                <li className="group">
-                  {/* <div className="container bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> */}
-                  <ul className="bg-gray-100 shadow-md rounded-md px-4 pt-6 pb-6 mb-4 absolute hidden text-gray-700 group-hover:block space-y-4">
+    <div className="app-container">
+      <header className="header">
+        <div className="header-nav">
+          <div className="dropdown">
+            <button className="head-btn" onClick={toggleList}>
+              <VscSettings className="icon" />
+              <span className="text">Display</span>
+              <VscChevronDown className="icon" />
+            </button>
+            {isListOpen && (
+              <ul className="dropdown-list">
+                <li className="">
+                  <ul>
                     {/* Grouping */}
-                    <li className="flex items-center space-x-12">
-                      <h3 className=" px-2 whitespace-no-wrap inline-block text-sm text-gray-500 font-semibold">
+                    <li className="dropdown-list-item">
+                      <h3 className="dropdown-list-item-head ">
                         Grouping
                       </h3>
                       <select
-                        className="text-sm text-gray-500 border rounded-md px-2 bg-white w-24 float-right"
+                        className="dropdown-list-item-select"
                         value={groupBy}
                         onChange={(e) => setgroupBy(e.target.value)}
                       >
@@ -59,12 +64,12 @@ function App() {
                       </select>
                     </li>
                     {/* Sorting */}
-                    <li className="flex items-center space-x-14">
-                      <h3 className=" px-2 whitespace-no-wrap inline-block text-sm text-gray-500 font-semibold">
+                    <li className="dropdown-list-item">
+                      <h3 className="dropdown-list-item-head">
                         Sorting
                       </h3>
                       <select
-                        className="text-sm text-gray-500 border rounded-md px-2 bg-white w-24 float-right"
+                        className="dropdown-list-item-select"
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
                       >
@@ -76,11 +81,11 @@ function App() {
                   {/* </div> */}
                 </li>
               </ul>
+              )}
             </div>
           </div>
-        </div>
       </header>
-      <div className="p-4">
+      <div style={{"padding":"1rem"}}>
         {/* Passing the above as the params of KanbanBoard function */}
         <KanbanBoard 
         tickets={tickets} 
