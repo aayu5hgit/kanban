@@ -6,23 +6,23 @@ function Ticket({ ticket, users, groupBy }) {
   const userAvailable = user ? user.available : false;
 
   return (
-    <div className="bg-white p-3 rounded-md mb-2">
-      <div className="flex justify-between items-center">
-        <h3 className="text-xs mb-1 text-gray-500">{ticket.id}</h3>
+    <div className="ticket-container">
+      <div className="ticket-box">
+        <h3 className="ticket-id">{ticket.id}</h3>
         {groupBy !== 'user' &&  (
-          <div className="flex items-end justify-end">
-            <div className="w-5 h-5 rounded-full mr-2 flex items-center justify-center text-white bg-blue-500 text-xs font-semibold">
+          <div className="ticket-head">
+            <div className="ticket-name">
               {name}
             </div>
-            <div className={`w-2 h-2 rounded-full ${userAvailable ? 'bg-green-500' : 'bg-red-500'} -ml-3`} ></div>
+            <div className={`ticket-avail ${userAvailable ? 'bg-green-500' : 'bg-red-500'} `} ></div>
           </div>
         )}
       </div>
-      <p className="text-xs text-gray-800 font-semibold w-3/4 line-clamp-2">
+      <p className="ticket-title">
         {ticket.title}
       </p>
-      <p className="text-11 text-gray-400 mt-2 p-1 rounded-md border border-gray-400/20 w-fit">
-        <span className="inline-block w-2 h-2 bg-gray-400 ml-1 mr-1 rounded-full" />
+      <p className="ticket-tag">
+        <span className="ticket-tag-dot" />
         {ticket.tag}
       </p>
     </div>
