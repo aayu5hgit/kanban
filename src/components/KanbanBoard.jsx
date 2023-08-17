@@ -5,19 +5,42 @@ import { BiCircle, BiErrorCircle, BiSignal1, BiSignal2, BiSignal3, BiSignal4, Bi
 import { BsClock } from 'react-icons/bs';
 import { PiCircleHalfFill } from 'react-icons/pi';
 
-function KanbanBoard({ tickets, groupingOption, users }) {
-  const groupedTickets = {};
+function KanbanBoard({ tickets, groupBy, sortBy, users }) {
+  const groupedTickets = {};  
+  
+  // Grouping the tickets based on the groupBy value
   tickets.forEach((ticket) => {
-    const groupKey =
-      groupingOption === 'user' ? ticket.userId : ticket[groupingOption];
+    const groupKey = groupBy === 'user' ? ticket.userId : ticket[groupBy];
     if (!groupedTickets[groupKey]) {
       groupedTickets[groupKey] = [];
     }
     groupedTickets[groupKey].push(ticket);
   });
 
+  // Sorting the tickets in each group based on the sortBy value
+  Object.keys(groupedTickets).forEach((key) => {
+    console.log(`Sorting for group: ${key}, sortBy: ${sortBy}`);
+    groupedTickets[key].sort((a, b) => {
+      if (sortBy === 'priority') {
+        console.log('Sorting by priority');
+        return b.priority - a.priority;
+      }
+      if (sortBy === 'title') {
+        console.log('Sorting by title');
+        return a.title.localeCompare(b.title);
+      }
+      return 0;
+    });
+  });
+  // if (groupBy === 'status') {
+  //   groupedTickets['Done'] = [];
+  //   groupedTickets['Cancelled'] = [];
+  // }
+  console.log('Grouping Successfull: ', groupedTickets);
+  
+  // Dynamic Icons for Grouping
   const getGroupingIcon = (groupKey) => {
-    if (groupingOption === 'status') {
+    if (groupBy === 'status') {
       return (
         <div>
           {groupedTickets[groupKey].some((ticket) => ticket.status === 'Todo') ? (
@@ -29,7 +52,7 @@ function KanbanBoard({ tickets, groupingOption, users }) {
           ) : null}
         </div>
       );
-    } else if (groupingOption === 'priority') {
+    } else if (groupBy === 'priority') {
       return (
         <>
           <div>
@@ -68,12 +91,12 @@ function KanbanBoard({ tickets, groupingOption, users }) {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-      {Object.keys(groupedTickets).map((groupKey) => (
-        <div key={groupKey} className="rounded-lg p-2 w-full">
+    {Object.keys(groupedTickets).map((groupKey) => (
+      <div key={groupKey} className="rounded-lg p-2 w-full">
           <h2 className="text-sm font-semibold mb-2 flex items-center justify-between">
             <div className="flex items-center">
               {getGroupingIcon(groupKey)}
-              {groupingOption === 'user' ? (
+              {groupBy === 'user' ? (
                 <div className="text-sm mt-1 flex items-center">
                   <div className={`w-6 h-6 rounded-full mr-2 float-left bg-blue-500 text-white flex items-center justify-center`}>
                     {users.find((user) => user.id === groupKey)?.name[0]}
@@ -98,8 +121,8 @@ function KanbanBoard({ tickets, groupingOption, users }) {
             </div>
           </h2>
           {groupedTickets[groupKey].map((ticket) => (
-            <Ticket key={ticket.id} ticket={ticket} users={users} />
-          ))}
+          <Ticket key={ticket.id} ticket={ticket} users={users} />
+        ))}
         </div>
       ))}
     </div>
