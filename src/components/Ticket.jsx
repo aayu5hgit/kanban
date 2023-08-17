@@ -14,7 +14,7 @@ function Ticket({ ticket, users, groupBy }) {
             <div className="ticket-name">
               {name}
             </div>
-            <div className={`ticket-avail ${userAvailable ? 'bg-green-500' : 'bg-red-500'} `} ></div>
+            <div className={` ${userAvailable ? 'ticket-avail' : 'ticket-not-avail'} `} ></div>
           </div>
         )}
       </div>
