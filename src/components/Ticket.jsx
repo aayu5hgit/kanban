@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Ticket.css'
 function Ticket({ ticket, users, groupBy }) {
   const user = users.find((user) => user.id === ticket.userId);
   const name = user ? user.name.charAt(0) : '-';
@@ -21,7 +21,7 @@ function Ticket({ ticket, users, groupBy }) {
       <p className="text-xs text-gray-800 font-semibold w-3/4 line-clamp-2">
         {ticket.title}
       </p>
-      <p className="text-[11px] text-gray-400 mt-2 p-1 rounded-md border border-gray-400/20 w-fit">
+      <p className="text-11 text-gray-400 mt-2 p-1 rounded-md border border-gray-400/20 w-fit">
         <span className="inline-block w-2 h-2 bg-gray-400 ml-1 mr-1 rounded-full" />
         {ticket.tag}
       </p>

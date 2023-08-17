@@ -1,5 +1,6 @@
 import React from 'react';
 import Ticket from './Ticket';
+import './KanbanBoard.css'
 import { VscAdd, VscEllipsis, VscListOrdered } from 'react-icons/vsc';
 import { BiCircle, BiErrorCircle, BiSignal1, BiSignal2, BiSignal3, BiSignal4, BiSignal5 } from 'react-icons/bi';
 import { BsClock } from 'react-icons/bs';
@@ -31,11 +32,11 @@ function KanbanBoard({ tickets, groupBy, sortBy, users }) {
       }
       return 0;
     });
-  });
-  // if (groupBy === 'status') {
-  //   groupedTickets['Done'] = [];
-  //   groupedTickets['Cancelled'] = [];
-  // }
+  });  
+  if (groupBy === 'status') {
+    groupedTickets['Done'] = [];
+    groupedTickets['Cancelled'] = [];
+  }
   console.log('Grouping Successfull: ', groupedTickets);
   
   // Dynamic Icons for Grouping

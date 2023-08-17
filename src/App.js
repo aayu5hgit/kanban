@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import KanbanBoard from "./components/KanbanBoard";
 import { VscSettings, VscChevronDown } from "react-icons/vsc";
+import "./App.css";
 
 function App() {
   const [tickets, setTickets] = useState([]);
@@ -33,12 +34,12 @@ function App() {
         <div className="flex justify-start space-x-2 space-y-2">
           <div className="relative inline-block">
             <div className="group inline-block relative">
-              <button className="text-gray-700 border border-gray-500/50 shadow-sm font-semibold py-1 px-3 rounded inline-flex items-center">
+              <button className="text-gray-700 border bg-white border-gray-500/50 shadow-sm font-semibold py-1 px-2 rounded inline-flex items-center ">
                 <VscSettings className="mr-1" />
                 <span className="text-sm">Display</span>
                 <VscChevronDown className="ml-1" />
               </button>
-              <ul className="absolute hidden text-gray-700 group-hover:block">
+              <ul className="absolute text-gray-700 hover-block">
                 <li className="group">
                   {/* <div className="container bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> */}
                   <ul className="bg-gray-100 shadow-md rounded-md px-4 pt-6 pb-6 mb-4 absolute hidden text-gray-700 group-hover:block space-y-4">
