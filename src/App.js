@@ -37,7 +37,7 @@ function App() {
                 <span className="mr-1 text-sm">Display</span>
                 <VscChevronDown className="ml-1" />
               </button>
-              <ul className="absolute hidden text-gray-700 pt-2 group-hover:block">
+              <ul className="absolute hidden text-gray-700 group-hover:block">
                 <li className="group">
                   {/* <div className="container bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> */}
                   <ul className="bg-gray-100 shadow-md rounded-md px-4 pt-6 pb-6 mb-4 absolute hidden text-gray-700 group-hover:block space-y-4">
@@ -51,7 +51,7 @@ function App() {
                         onChange={(e) => setGroupingOption(e.target.value)}
                       >
                         <option value="status">Status</option>
-                        <option value="userId">User</option>
+                        <option value="user">User</option>
                         <option value="priority">Priority</option>
                       </select>
                     </li>
