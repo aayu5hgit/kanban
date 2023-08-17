@@ -45,11 +45,11 @@ function KanbanBoard({ tickets, groupBy, sortBy, users }) {
       return (
         <div>
           {groupedTickets[groupKey].some((ticket) => ticket.status === 'Todo') ? (
-            <BsClock className="inline-block w-5 h-5 mr-2 ml-1 text-blue-500" />
+            <BsClock className="symbol-todo" />
           ) : groupedTickets[groupKey].some((ticket) => ticket.status === 'In progress') ? (
-            <PiCircleHalfFill className="inline-block w-5 h-5 mr-2 ml-1 text-orange-500" />
+            <PiCircleHalfFill className="symbol-in-progress" />
           ) : groupedTickets[groupKey].some((ticket) => ticket.status === 'Backlog') ? (
-            <BiErrorCircle className="inline-block w-5 h-5 mr-2 ml-1 text-red-500" />
+            <BiErrorCircle className="symbol-backlog" />
           ) : null}
         </div>
       );
@@ -58,28 +58,28 @@ function KanbanBoard({ tickets, groupBy, sortBy, users }) {
         <>
           <div>
             {groupedTickets[groupKey].some((ticket) => ticket.priority === 0) ? (
-              <span className="text-sm text-gray-500 mx-2">
-                <BiSignal1 className="inline-block w-5 h-5 mr-2" />
+              <span className="priority-main">
+                <BiSignal1 className="priority-symbol" />
                 No Priority
               </span>
             ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 1) ? (
-              <span className="text-sm text-gray-500 mx-2">
-                <BiSignal2 className="inline-block w-5 h-5 mr-2" />
+              <span className="priority-main">
+                <BiSignal2 className="priority-symbol" />
                 Low
               </span>
             ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 2) ? (
-              <span className="text-sm text-gray-500 mx-2">
-                <BiSignal3 className="inline-block w-5 h-5 mr-2" />
+              <span className="priority-main">
+                <BiSignal3 className="priority-symbol" />
                 Medium
               </span>
             ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 3) ? (
-              <span className="text-sm text-gray-500 mx-2">
-                <BiSignal4 className="inline-block w-5 h-5 mr-2" />
+              <span className="priority-main">
+                <BiSignal4 className="priority-symbol" />
                 High
               </span>
             ) : groupedTickets[groupKey].some((ticket) => ticket.priority === 4) ? (
-              <span className="text-sm text-gray-500 mx-2">
-                <BiSignal5 className="inline-block w-5 h-5 mr-2 " />
+              <span className="priority-main">
+                <BiSignal5 className="priority-symbol" />
                 Urgent
               </span>
             ) : null}
@@ -91,34 +91,34 @@ function KanbanBoard({ tickets, groupBy, sortBy, users }) {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="kanban-container">
     {Object.keys(groupedTickets).map((groupKey) => (
-      <div key={groupKey} className="rounded-lg p-2 w-full">
-          <h2 className="text-sm font-semibold mb-2 flex items-center justify-between">
-            <div className="flex items-center">
+      <div key={groupKey} className="key">
+          <h2 className="kanban-head">
+            <div style={{"display":"flex","alignItems":"center"}}>
               {getGroupingIcon(groupKey)}
               {groupBy === 'user' ? (
-                <div className="text-sm mt-1 flex items-center">
-                  <div className={`w-6 h-6 rounded-full mr-2 float-left bg-blue-500 text-white flex items-center justify-center`}>
+                <div className="kanban-head-name">
+                  <div className={`kanban-head-name-symbol`}>
                     {users.find((user) => user.id === groupKey)?.name[0]}
                   </div>
                   {users.find((user) => user.id === groupKey)?.name}
                   {users.find((user) => user.id === groupKey)?.available ? (
-                    <span className="inline-block w-2 h-2 bg-green-500 ml-1 rounded-full" />
+                    <span className="kanban-user-avail-true" />
                   ) : (
-                    <span className="inline-block w-2 h-2 bg-red-500 ml-1 rounded-full" />
+                    <span className="kanban-user-avail-false" />
                   )}
                 </div>
               ) : (
                 groupKey
               )}
-              <span className="text-xs text-gray-400 ml-2">
+              <span className="ticket-len">
                 ({groupedTickets[groupKey].length})
               </span>
             </div>
             <div>
-              <VscAdd className="inline-block w-3 h-3 ml-2 cursor-pointer text-gray-500 hover:text-gray-800" />
-              <VscEllipsis className="inline-block w-3 h-3 ml-2 cursor-pointer text-gray-500 hover:text-gray-800" />
+              <VscAdd className="kanban-etc" />
+              <VscEllipsis className="kanban-etc" />
             </div>
           </h2>
           {groupedTickets[groupKey].map((ticket) => (
