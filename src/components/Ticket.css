@@ -98,6 +98,13 @@
   border: 1px solid #ffffff;
 }
 
+.ticket-tag-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .ticket-tag {
   padding: 0.25rem;
   margin-top: 0.5rem;
@@ -116,4 +123,23 @@
   margin-right: 0.25rem;
   border-radius: 9999px;
   background-color: #9CA3AF;
+}
+
+.ticket-priority-symbol {
+  display: inline-block;
+  padding: 0.20rem;
+  margin-right: 0.5rem;
+  border-radius: 0.375rem;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9CA3AF;
+}
+
+.priority-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #9CA3AF;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Ticket.css";
 import { BsClock } from "react-icons/bs";
-import { BiErrorCircle } from "react-icons/bi";
+import { BiErrorCircle, BiSignal1, BiSignal2, BiSignal3, BiSignal4, BiSignal5 } from "react-icons/bi";
 import { PiCircleHalfFill } from "react-icons/pi";
 
 function Ticket({ ticket, users, groupBy }) {
@@ -39,10 +39,30 @@ function Ticket({ ticket, users, groupBy }) {
         </div>
       )}
       {groupBy === "status" && <p className="ticket-title">{ticket.title}</p>}
+      <div className="ticket-tag-box">
+      <span className="ticket-priority-symbol">
+            {ticket.priority === 4 && (
+              <BiSignal1 className="priority-icon" />
+            )}
+            {ticket.priority === 3 && (
+              <BiSignal2 className="priority-icon" />
+            )}
+            {ticket.priority === 2 && (
+              <BiSignal3 className="priority-icon" />
+            )}
+            {ticket.priority === 1 && (
+              <BiSignal3 className="priority-icon" />
+            )}
+            {ticket.priority === 0 && (
+              <BiSignal3 className="priority-icon" />
+            )}
+          </span>
       <p className="ticket-tag">
         <span className="ticket-tag-dot" />
         {ticket.tag}
       </p>
+      </div>
+     
     </div>
   );
 }
