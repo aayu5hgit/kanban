@@ -1,44 +1,44 @@
-.symbol-todo{
-  display: inline-block; 
-margin-left: 0.25rem; 
-margin-right: 0.5rem; 
-width: 1.25rem; 
-height: 1.25rem; 
-color: #3B82F6; 
-}
-
-.symbol-in-progress{
+.symbol-todo {
   display: inline-block;
-margin-left: 0.25rem;
-margin-right: 0.5rem;
-width: 1.25rem;
-height: 1.25rem;
-color: orange;
+  margin-left: 0.25rem;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #3B82F6;
 }
 
-.symbol-backlog{
+.symbol-in-progress {
   display: inline-block;
-margin-left: 0.25rem;
-margin-right: 0.5rem;
-width: 1.25rem;
-height: 1.25rem;
-color: red;
+  margin-left: 0.25rem;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: orange;
 }
 
-.priority-main{
+.symbol-backlog {
+  display: inline-block;
+  margin-left: 0.25rem;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: red;
+}
+
+.priority-main {
   margin-left: 0.5rem;
-margin-right: 0.5rem; 
-font-size: 0.875rem;
-line-height: 1.25rem; 
-color: #6B7280; 
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6B7280;
 }
 
-.priority-symbol{
-  display: inline-block; 
-margin-right: 0.5rem; 
-width: 1.25rem; 
-height: 1.25rem; 
-color: #6B7280; 
+.priority-symbol {
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6B7280;
 }
 
 .kanban-container {
@@ -65,76 +65,75 @@ color: #6B7280;
   }
 }
 
-.key{
-  padding: 0.5rem; 
-border-radius: 0.5rem; 
-width: 100%; 
+.key {
+  border-radius: 0.5rem;
+  width: 100%;
 }
 
-.kanban-head{
-  display: flex; 
-margin-bottom: 0.5rem; 
-justify-content: space-between; 
-align-items: center; 
-font-size: 0.875rem;
-line-height: 1.25rem; 
-font-weight: 600; 
+.kanban-head {
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
 }
 
-.kanban-head-name{
-  display: flex; 
-margin-top: 0.25rem; 
-align-items: center; 
-font-size: 0.875rem;
-line-height: 1.25rem; 
+.kanban-head-name {
+  display: flex;
+  margin-top: 0.25rem;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.kanban-head-name-symbol{
-  display: flex; 
-  float: left; 
-  margin-right: 0.5rem; 
-  justify-content: center; 
-  align-items: center; 
-  border-radius: 9999px; 
-  width: 1.5rem; 
-  height: 1.5rem; 
-  color: #ffffff; 
-  background-color: #3B82F6; 
+.kanban-head-name-symbol {
+  display: flex;
+  float: left;
+  margin-right: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffffff;
+  background-color: #3B82F6;
 }
 
-.kanban-user-avail-true{
-  border-radius: 9999px; 
-  width: 0.5rem; 
-  height: 0.5rem; 
+.kanban-user-avail-true {
+  border-radius: 9999px;
+  width: 0.5rem;
+  height: 0.5rem;
   margin-left: 0.3rem;
-  background-color: #10B981; 
+  background-color: #10B981;
 }
 
-.kanban-user-avail-false{
-  border-radius: 9999px; 
-  width: 0.5rem; 
-  height: 0.5rem; 
+.kanban-user-avail-false {
+  border-radius: 9999px;
+  width: 0.5rem;
+  height: 0.5rem;
   margin-left: 0.3rem;
-  background-color: #EF4444; 
+  background-color: #EF4444;
 }
 
-.ticket-len{
-  margin-left: 0.5rem; 
+.ticket-len {
+  margin-left: 0.5rem;
   font-size: 0.75rem;
-  line-height: 1rem; 
-  color: #9CA3AF; 
-  
+  line-height: 1rem;
+  color: #9CA3AF;
+
 }
 
-.kanban-etc{
-  display: inline-block; 
-margin-left: 0.5rem; 
-width: 0.75rem; 
-height: 0.75rem; 
-color: #6B7280; 
-cursor: pointer; 
+.kanban-etc {
+  display: inline-block;
+  margin-left: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #6B7280;
+  cursor: pointer;
 }
 
-.kanban-etc:hover{
-  color: #272525; 
+.kanban-etc:hover {
+  color: #272525;
 }

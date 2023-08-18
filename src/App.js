@@ -9,12 +9,11 @@ function App() {
   const [users, setUsers] = useState([]);
   const [groupBy, setgroupBy] = useState("status");
   const [sortBy, setSortBy] = useState("priority");
-const [isListOpen, setIsListOpen] = useState(false);
+  const [isListOpen, setIsListOpen] = useState(false);
 
-const toggleList = () => {
-  setIsListOpen(!isListOpen);
-};
-
+  const toggleList = () => {
+    setIsListOpen(!isListOpen);
+  };
 
   useEffect(() => {
     fetchTickets();
@@ -22,7 +21,9 @@ const toggleList = () => {
 
   const fetchTickets = async () => {
     try {
-      const response = await axios.get("https://api.quicksell.co/v1/internal/frontend-assignment");
+      const response = await axios.get(
+        "https://api.quicksell.co/v1/internal/frontend-assignment"
+      );
 
       // changing the state of the tickets and users to the response data from the api
       setTickets(response.data.tickets);
@@ -50,9 +51,7 @@ const toggleList = () => {
                   <ul>
                     {/* Grouping */}
                     <li className="dropdown-list-item">
-                      <h3 className="dropdown-list-item-head ">
-                        Grouping
-                      </h3>
+                      <h3 className="dropdown-list-item-head ">Grouping</h3>
                       <select
                         className="dropdown-list-item-select"
                         value={groupBy}
@@ -65,9 +64,7 @@ const toggleList = () => {
                     </li>
                     {/* Sorting */}
                     <li className="dropdown-list-item">
-                      <h3 className="dropdown-list-item-head">
-                        Sorting
-                      </h3>
+                      <h3 className="dropdown-list-item-head">Sorting</h3>
                       <select
                         className="dropdown-list-item-select"
                         value={sortBy}
@@ -81,17 +78,18 @@ const toggleList = () => {
                   {/* </div> */}
                 </li>
               </ul>
-              )}
-            </div>
+            )}
           </div>
+        </div>
       </header>
-      <div style={{"padding":"1rem"}}>
+      <div style={{ padding: "1rem" }}>
         {/* Passing the above as the params of KanbanBoard function */}
-        <KanbanBoard 
-        tickets={tickets} 
-        groupBy={groupBy} 
-        users={users} 
-        sortBy={sortBy} />
+        <KanbanBoard
+          tickets={tickets}
+          groupBy={groupBy}
+          users={users}
+          sortBy={sortBy}
+        />
       </div>
     </div>
   );
