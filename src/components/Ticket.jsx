@@ -42,19 +42,19 @@ function Ticket({ ticket, users, groupBy }) {
       <div className="ticket-tag-box">
       <span className="ticket-priority-symbol">
             {ticket.priority === 4 && (
-              <BiSignal1 className="priority-icon" />
+              <BiSignal5 className="priority-icon" />
             )}
             {ticket.priority === 3 && (
-              <BiSignal2 className="priority-icon" />
+              <BiSignal4 className="priority-icon" />
             )}
             {ticket.priority === 2 && (
               <BiSignal3 className="priority-icon" />
             )}
             {ticket.priority === 1 && (
-              <BiSignal3 className="priority-icon" />
+              <BiSignal2 className="priority-icon" />
             )}
             {ticket.priority === 0 && (
-              <BiSignal3 className="priority-icon" />
+              <BiSignal1 className="priority-icon" />
             )}
           </span>
       <p className="ticket-tag">

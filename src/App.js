@@ -47,7 +47,7 @@ function App() {
             </button>
             {isListOpen && (
               <ul className="dropdown-list">
-                <li className="">
+                <li>
                   <ul>
                     {/* Grouping */}
                     <li className="dropdown-list-item">
