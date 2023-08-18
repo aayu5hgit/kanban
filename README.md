@@ -23,10 +23,17 @@ The user can **customize** the display by **grouping** and **sorting** tickets b
 <hr>
 
 **Developed and Designed by**  [Aayush Talreja](https://github.com/aayu5hgit/)
+<br>
 
 **Project Link**
 
+[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](bit.ly/kanban-aayush)
+<br>
+
+**GitHub Link**
+
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://www.github.com/aayu5hgit/kanban "GitHub")
+<br>
 
 **Contact**
 
