@@ -27,7 +27,7 @@ The user can **customize** the display by **grouping** and **sorting** tickets b
 
 **Project Link**
 
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](bit.ly/kanban-aayush)
+[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://bit.ly/kanban-aayush)
 <br>
 
 **GitHub Link**
