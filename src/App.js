@@ -3,6 +3,8 @@ import axios from "axios";
 import KanbanBoard from "./components/KanbanBoard";
 import { VscSettings, VscChevronDown } from "react-icons/vsc";
 import "./App.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [tickets, setTickets] = useState([]);
@@ -37,6 +39,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <ToastContainer autoClose={1000}/>
       <header className="header">
         <div className="header-nav">
           <div className="dropdown">
@@ -55,7 +58,10 @@ function App() {
                       <select
                         className="dropdown-list-item-select"
                         value={groupBy}
-                        onChange={(e) => setgroupBy(e.target.value)}
+                        onChange={(e) => {
+                          setgroupBy(e.target.value);
+                          toast.success(`Grouped by ${e.target.value}`);
+                        }}
                       >
                         <option value="status">Status</option>
                         <option value="user">User</option>
@@ -68,7 +74,10 @@ function App() {
                       <select
                         className="dropdown-list-item-select"
                         value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
+                        onChange={(e) => {
+                          setSortBy(e.target.value);
+                          toast.success(`Sorted by ${e.target.value}`);
+                        }}
                       >
                         <option value="priority">Priority</option>
                         <option value="title">Title</option>
