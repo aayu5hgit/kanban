@@ -1,28 +1,31 @@
 ## Kanban Board
-This is a Kanban ticket management application built with `React`. It allows users to organize and track tasks using a Kanban board interface.
+This is a Kanban ticket management web-application built with `ReactJS`. It allows users to organize and track tasks using a Kanban board interface.
 
-The app fetches ticket data from an API and displays each ticket's `ID`, `user assignment`, `availability status`, `priority`, `status`, `title`, and `tag`. 
+The web-app fetches ticket data from an **API** and displays each ticket's `ID`, `user availability status`, `priority`, `status`, `title`, and `tag` of a particular **ticket**. 
 
 The user can **customize** the display by **grouping** and **sorting** tickets based on different criteria. Let's have a look at various states (or criterias)
 
 #### 1.Default: `Grouping=status` && `Sorting=priority`
-![image](https://github.com/aayu5hgit/kanban/assets/86314754/01630e16-026e-4d21-b719-3c1188310f9e)
+<img src="./src/images/ss/ss1.png" width="100%">
 
 #### 2.When Display is clicked
-![image](https://github.com/aayu5hgit/kanban/assets/86314754/4057f6ab-907a-4d88-ae51-c864c5244b1b)
+<img src="./src/images/ss/ss2.png" width="100%">
 
 #### 3.Display State: `Grouping=User` && `Sorting=Priority`
-![image](https://github.com/aayu5hgit/kanban/assets/86314754/da84ebd4-c002-4c14-a6b5-42e0be5a5c05)
+<img src="./src/images/ss/ss3.png" width="100%">
 
-#### 4.Display State: `Grouping=Priority` && `Sorting=Title`
-![image](https://github.com/aayu5hgit/kanban/assets/86314754/7abef0c5-bb7e-48e0-8072-430bb8ef210e)
+#### 4.Display State: `Grouping=Priority` && `Sorting=Priority`
+<img src="./src/images/ss/ss4.png" width="100%">
+
+#### 4.Display State: `Grouping=User` && `Sorting=Title`
+<img src="./src/images/ss/ss5.png" width="100%">
 
 #### Card
-![image](https://github.com/aayu5hgit/kanban/assets/86314754/66dd4538-edd8-4741-b3ba-0d4eed9dc1ca)
+<img src="./src/images/ss/ss6.png" width="100%">
 
 <hr>
 
-**Developed and Designed by**  [Aayush Talreja](https://github.com/aayu5hgit/)
+**Developed and Designed by**  [Aayush Talreja](https://bio.link/aayushtalreja)
 <br>
 
 **Project Link**
