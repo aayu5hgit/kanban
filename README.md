@@ -5,23 +5,24 @@ The web-app fetches ticket data from an **API** and displays each ticket's `ID`,
 
 The user can **customize** the display by **grouping** and **sorting** tickets based on different criteria. Let's have a look at various states (or criterias)
 
+
 #### 1.Default: `Grouping=status` && `Sorting=priority`
-<img src="./src/images/ss/ss1.png" width="100%">
+<img src="./src/images/ss/ss1.png" width="80%">
 
 #### 2.When Display is clicked
-<img src="./src/images/ss/ss2.png" width="100%">
+<img src="./src/images/ss/ss2.png" width="80%">
 
 #### 3.Display State: `Grouping=User` && `Sorting=Priority`
-<img src="./src/images/ss/ss3.png" width="100%">
+<img src="./src/images/ss/ss3.png" width="80%">
 
 #### 4.Display State: `Grouping=Priority` && `Sorting=Priority`
-<img src="./src/images/ss/ss4.png" width="100%">
+<img src="./src/images/ss/ss4.png" width="80%">
 
 #### 4.Display State: `Grouping=User` && `Sorting=Title`
-<img src="./src/images/ss/ss5.png" width="100%">
+<img src="./src/images/ss/ss5.png" width="80%">
 
 #### Card
-<img src="./src/images/ss/ss6.png" width="100%">
+<img src="./src/images/ss/ss6.jpeg" width="50%">
 
 <hr>
 
@@ -30,7 +31,7 @@ The user can **customize** the display by **grouping** and **sorting** tickets b
 
 **Project Link**
 
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://bit.ly/kanban-aayush)
+[![Vercel](https://img.shields.io/badge/Kanban%20Aayush-%23121011.svg?style=for-the-badge&logo=vercel&logoColor=2F81F7)](https://bit.ly/kanban-aayush)
 <br>
 
 **GitHub Link**
